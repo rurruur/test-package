@@ -4,7 +4,7 @@
   "description": "Practice NPM Package Publishing with GitHub Packages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "exit 0"
   },
   "author": "nakkim",
   "license": "ISC",
