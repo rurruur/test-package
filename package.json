@@ -10,5 +10,9 @@
   "license": "ISC",
   "publishConfig": {
     "@rurruur:registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rurruur/test-package.git"
   }
 }
