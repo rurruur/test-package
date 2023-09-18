@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "nakkim",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "@rurruur:registry": "https://npm.pkg.github.com"
+  }
 }
