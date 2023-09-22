@@ -15,6 +15,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          fetch-depth: 0
 
       - name: package.json에서 현재 버전 가져오기
         id: get_version
