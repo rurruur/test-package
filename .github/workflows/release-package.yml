@@ -34,7 +34,7 @@ jobs:
 
       - name: 태그 동기화
         id: sync_tags
-        run: echo "git fetch origin ${{ steps.get_latest_tag.outputs.latest_tag }} && git fetch --tags && git log"
+        run: git fetch origin ${{ steps.get_latest_tag.outputs.latest_tag }} && git fetch --tags && git log
 
       - name: 릴리즈 생성
         if: steps.version_comparison.outputs.version_changed == 'true'
