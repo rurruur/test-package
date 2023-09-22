@@ -32,6 +32,10 @@ jobs:
         id: version_comparison
         run: echo "version_changed=${{ steps.get_version.outputs.version != steps.get_previous_version.outputs.previous_version }}" >> $GITHUB_OUTPUT
 
+      - name: 커밋 내역 동기화
+        id: sync_commit_history
+        run: git fetch origin ${{ steps.get_latest_tag.outputs.latest_tag }}
+
       - name: 릴리즈 생성
         if: steps.version_comparison.outputs.version_changed == 'true'
         run: |
