@@ -15,16 +15,16 @@ jobs:
 
       - name: package.json에서 현재 버전 가져오기
         id: get_version
-        run: echo "{version}={$(node -e 'console.log(require(\"./package.json\").version)')}" >> $GITHUB_OUTPUT
+        run: echo "version=$(node -e 'console.log(require(\"./package.json\").version)')" >> $GITHUB_OUTPUT
 
       - name: 이전 릴리즈 버전 가져오기
         id: get_previous_version
-        run: echo "{previous_version}={$(git describe --tags --abbrev=0)}" >> $GITHUB_OUTPUT
+        run: echo "previous_version=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: 버전 비교
         id: version_comparison
-        run: echo "{version_changed}={${{ steps.get_version.outputs.version != steps.get_previous_version.outputs.previous_version }}" >> $GITHUB_OUTPUT
+        run: echo "version_changed=${{ steps.get_version.outputs.version != steps.get_previous_version.outputs.previous_version }}" >> $GITHUB_OUTPUT
 
       - name: 릴리즈 생성
         if: steps.version_comparison.outputs.version_changed == 'true'
