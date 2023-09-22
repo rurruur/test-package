@@ -1,6 +1,6 @@
 {
   "name": "@rurruur/test-package",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Practice NPM Package Publishing with GitHub Packages",
   "main": "index.js",
   "scripts": {
