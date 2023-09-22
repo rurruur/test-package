@@ -36,7 +36,7 @@ jobs:
         if: steps.version_comparison.outputs.version_changed == 'true'
         run: |
           RELEASE_TITLE="v${{ steps.get_version.outputs.version }}"
-          RELEASE_BODY=$(git --no-pager log --pretty=format:"- %s%n" --no-merges ${{ steps.get_latest_tag.outputs.latest_tag }}..origin/HEAD)
+          RELEASE_BODY=$(git --no-pager log --no-merges --pretty=format:"- %s" ${{ steps.get_latest_tag.outputs.latest_tag }}..origin/HEAD)
           echo "Creating release $RELEASE_TITLE"
           echo "Title: $RELEASE_TITLE"
           echo "Body: $RELEASE_BODY"
