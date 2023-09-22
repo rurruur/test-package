@@ -41,6 +41,9 @@ jobs:
         run: |
           RELEASE_TITLE="v${{ steps.get_version.outputs.version }}"
           RELEASE_BODY=$(git --no-pager log --no-merges --pretty=format:"- %s" ${{ steps.get_latest_tag.outputs.latest_tag }}..HEAD)
+          RELEASE_BODY="${RELEASE_BODY//'%'/'%25'}"
+          RELEASE_BODY="${RELEASE_BODY//$'\n'/'%0A'}"
+          RELEASE_BODY="${RELEASE_BODY//$'\r'/'%0D'}"
           echo "Creating release $RELEASE_TITLE"
           echo "Title: $RELEASE_TITLE"
           echo "Body: $RELEASE_BODY"
